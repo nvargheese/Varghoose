@@ -9,7 +9,6 @@ public class DealershipFileManager {
         try {
             FileInputStream fis = new FileInputStream("main/resources/inventory.csv");
             Scanner scanner = new Scanner(fis);
-
             String dealershipInfo = scanner.nextLine();
             String[] dealershipData = dealershipInfo.split("\\|");
             String name = dealershipData[0];
@@ -31,12 +30,10 @@ public class DealershipFileManager {
                 dealership.addVehicle(vehicle);
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
+            System.out.println("Error: file not found");
         }
         return dealership;
     }
-
     public void saveDealership(Dealership dealership) {
-
     }
 }

@@ -67,65 +67,55 @@ public class UserInterface {
             scanner.close();
 
         }
-        // methods for user
     }
-
     private void listAllVehicles() {
         List<Vehicle> allVehicles = dealership.getAllVehicles();
         displayFilteredVehicles(allVehicles);
     }
-
     private void displayFilteredVehicles(List<Vehicle> filteredVehicles) {
     }
-
     private void addVehicle() {
-        System.out.println("Please answer the following to add a vehicle");
+        System.out.println("Enter the following information");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter VIN: ");
+        System.out.print("Enter VIN number: ");
         int vin = scanner.nextInt();
-        System.out.print("Enter the vehicle's year: ");
+        System.out.print("Enter vehicle's year: ");
         int year = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter the vehicle's make: ");
+        System.out.print("Enter vehicle's make: ");
         String make = scanner.nextLine();
-        System.out.print("Enter the vehicle's model: ");
+        System.out.print("Enter vehicle's model: ");
         String model = scanner.nextLine();
-        System.out.print("Enter the vehicle type (car, truck, SUV, van): ");
+        System.out.print("Enter vehicle type (Car, Truck, SUV, Van): ");
         String vehicleType = scanner.nextLine();
-        System.out.print("Enter the vehicle's color: ");
+        System.out.print("Enter vehicle's color: ");
         String color = scanner.nextLine();
-        System.out.print("Enter the vehicle's odometer: ");
+        System.out.print("Enter vehicle's odometer: ");
         int odometer = scanner.nextInt();
-        System.out.print("Enter the vehicle's price: ");
+        System.out.print("Enter vehicle's price: ");
         double price = scanner.nextDouble();
-
         Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
         dealership.addVehicle(newVehicle);
-        System.out.println("Successfully added!");
+        System.out.println("Vehicle added");
     }
-
     private void searchByPrice() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Enter your min price");
+        System.out.println("Enter min price");
         double minPrice = userInput.nextDouble();
-        System.out.println("Enter your max price");
+        System.out.println("Enter max price");
         double maxPrice = userInput.nextDouble();
-
         List<Vehicle> filteredVehicles = dealership.getVehiclesByPrice(minPrice, maxPrice);
         displayFilteredVehicles(filteredVehicles);
     }
-
     private void searchByMakeModel() {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Enter make");
         String make = userInput.nextLine();
         System.out.println("Enter model");
         String model = userInput.nextLine();
-
         List<Vehicle> filteredVehicles = dealership.getVehiclesByMakeModel(make, model);
         displayFilteredVehicles(filteredVehicles);
     }
-
     private void searchByYear() {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Enter min year");
@@ -136,25 +126,18 @@ public class UserInterface {
         List<Vehicle> filteredVehicles = dealership.getVehiclesByYear(minYear, maxYear);
         displayFilteredVehicles(filteredVehicles);
     }
-
     private void searchByColor() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Enter desired vehicle color");
+        System.out.println("Enter vehicle color");
         String color = userInput.nextLine();
-
         List<Vehicle> filteredVehicles = dealership.getVehiclesByColor(color);
         displayFilteredVehicles(filteredVehicles);
     }
-
     private void searchByType() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Enter desired vehicle type");
+        System.out.println("Enter vehicle type");
         String type = userInput.nextLine();
-
-
         List<Vehicle> filteredVehicles = dealership.getVehiclesByType(type);
         displayFilteredVehicles(filteredVehicles);
     }
-
-
 }
